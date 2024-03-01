@@ -19,7 +19,7 @@ function divide(a, b) {
 
     if (b !== 0) return a / b;
 
-    alert("I can't believe you tried to divide by zero...");
+    console.log("I can't believe you tried to divide by zero...");
     return undefined;
 }
 
@@ -42,11 +42,11 @@ function performOperation(operator, a, b) {
             result = divide(a, b);
             break;
         default:
-            alert("Operation not supported");
+            console.log("Operation not supported");
             result = 0;
     }
 
-
+    return result;
 
 
 }
