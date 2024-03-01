@@ -68,6 +68,13 @@ p {
     flex: 1;
 }
 
+
+.buttons>*:hover {
+    filter: brightness(85%);
+}
+
+
+
 #display {
     background-color: gray;
     flex: 1;
