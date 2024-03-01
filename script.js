@@ -1,3 +1,6 @@
+// Elements
+const display = document.querySelector('#display');
+const buttons = document.querySelectorAll('.buttons>*')
 
 
 // Operations
@@ -50,3 +53,14 @@ function performOperation(operator, a, b) {
 
 
 }
+
+function updateDisplay(result) {
+
+    display.textContent = result;
+}
+
+buttons.forEach(button => button.addEventListener('click', () => updateDisplay(button.id)));
+
+
+
+
