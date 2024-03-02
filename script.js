@@ -9,8 +9,6 @@ const operators = ['+', '-', '/', '*'];
 let currentExpression = '';
 let result = 0;
 
-let operatorEntered = false;
-
 
 // Operations
 // All operations take 2 arrays as an argument
@@ -106,15 +104,13 @@ function handleInput(input) {
     // don't evaluate if expression only has one value
     if (operators.includes(input) && currentExpression.length > 1) {
 
-        if (!isPrevInputOperator) {
+        if (!isPrevInputOperator()) {
             result = evaluateExpression();
         } else {
             // overwrite last operator
             overwriteOperator(input);
             updateDisplay(currentExpression);
-            return;
-
-
+            return
         }
 
     }
