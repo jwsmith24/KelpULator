@@ -4,9 +4,11 @@ const buttons = document.querySelectorAll('.buttons>*')
 
 
 // Variables for Operations
-let userInput = [];
+
 let currentExpression = '';
 let result = 0;
+
+let operatorEntered = false;
 
 
 // Operations
@@ -34,43 +36,45 @@ function divide(a, b) {
 }
 
 
-function performOperation() {
 
-    let result;
+// only one expression should ever be passed at a time
+function evaluateExpression() {
 
-    const first = parseInt(a.join(''));
-    const second = parseInt(b.join(''));
+    // split the expression string into components on the operator
+    const expression = currentExpression.split(/([+*/-])/);
+
+    // [1, +, 3]
+    const first = parseInt(expression[0]);
+    const operator = expression[1];
+    const second = parseInt(expression[2]);
 
 
     switch (operator) {
+        case '+': result = add(first, second);
+            break;
 
-        case '+':
-            result = add(first, second);
+        case '-': result = subtract(first, second);
             break;
-        case '-':
-            result = subtract(first, second);
+
+        case '*': result = multiply(first, second);
             break;
-        case '*':
-            result = multiply(first, second);
-            break;
-        case '/':
-            result = divide(first, second);
-            break;
-        default:
-            // user hit enter before an operator was provided, return first value
-            console.log("Operation not supported");
-            result = first;
+
+        case '/': result = divide(first, second);
     }
 
+    updateDisplay(result);
+    currentExpression = result;
+
+
     return result;
-
-
 }
 
 
-function updateDisplay(currentExpression) {
 
-    display.textContent = currentExpression;
+
+function updateDisplay(value) {
+
+    display.textContent = value;
 }
 
 
@@ -84,11 +88,11 @@ function handleInput(input) {
 
     // check for equals 
     if (input === "Enter") {
-        display.textContent = performOperation();
-        clearCalculator();
+        evaluateExpression();
+        result = 0;
+
         return;
     }
-
 
     // add user input to the current expression
 
@@ -101,11 +105,8 @@ function handleInput(input) {
 }
 
 function clearCalculator() {
-    a = [];
-    b = [];
-    operatorPressed = false;
-    operator = undefined;
-
+    currentExpression = '';
+    result = 0;
 }
 
 function resetDisplay() {
@@ -113,6 +114,8 @@ function resetDisplay() {
 }
 
 
+
+// Listeners
 
 window.addEventListener('keydown', handleKeyBoardInput);
 
@@ -123,10 +126,9 @@ function handleKeyBoardInput(event) {
     // make sure input is a number or operator before updating display
     if (!isNaN(parseInt(key)) || ['+', '-', '/', '*', 'Enter', 'Escape'].includes(key)) {
         handleInput(key);
-
-
     }
 
+    // otherwise do nothing
 }
 
 
