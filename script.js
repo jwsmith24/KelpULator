@@ -9,6 +9,8 @@ const operators = ['+', '-', '/', '*'];
 let currentExpression = '';
 let result = 0;
 
+let operatorEntered = false;
+
 
 // Operations
 // All operations take 2 arrays as an argument
@@ -92,20 +94,24 @@ function handleInput(input) {
     if (input === "Escape") {
         clearCalculator();
         resetDisplay();
+        operatorEntered = false;
         return;
     }
 
     // check for equals 
     if (input === "Enter") {
+        operatorEntered = false;
         result = evaluateExpression();
         return;
     }
 
-    // don't evaluate if expression only has one value
-    if (operators.includes(input) && currentExpression.length > 1) {
+
+    // Handle consecutive operators
+    if (operators.includes(input) && operatorEntered) {
 
         if (!isPrevInputOperator()) {
             result = evaluateExpression();
+
         } else {
             // overwrite last operator
             overwriteOperator(input);
@@ -116,8 +122,12 @@ function handleInput(input) {
     }
 
 
-    // add user input to the current expression
+    // track that operator has been entered
+    if (operators.includes(input)) {
+        operatorEntered = true;
+    }
 
+    // add user input to the current expression
     currentExpression += input;
     updateDisplay(currentExpression);
 
