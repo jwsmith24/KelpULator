@@ -34,10 +34,10 @@ function divide(a, b) {
 }
 
 
-function performOperation(operator, a, b) {
+function performOperation() {
 
     let result;
-
+    //todo: make the arrays workable here
     switch (operator) {
         case '+':
             result = add(a, b);
@@ -64,11 +64,8 @@ function performOperation(operator, a, b) {
 
 function updateDisplay() {
 
-    let result;
-
-    (!operatorPressed) ? result = a : result = b;
-
-
+    // concat array elements into a string with no seperation
+    const result = (!operatorPressed) ? a.join('') : b.join('');
 
     display.textContent = result;
 }
@@ -95,7 +92,7 @@ function handleInput(input) {
     // check for equals 
     if (input === "Enter") {
 
-        evaluateInputs();
+        performOperation();
         return;
     }
 
@@ -119,11 +116,6 @@ function clearCalculator() {
     display.textContent = "Let's Kelp-u-Late!";
 }
 
-function evaluateInputs() {
-    display.textContent = "Kelp-u-lating ... ";
-
-
-}
 
 
 
