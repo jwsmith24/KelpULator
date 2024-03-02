@@ -1,6 +1,7 @@
 // Elements
 const display = document.querySelector('#display');
-const buttons = document.querySelectorAll('.buttons>*')
+const buttons = document.querySelectorAll('.buttons>*');
+const funFactText = document.querySelector('#fact');
 
 const operators = ['+', '-', '/', '*'];
 const MAX_LENGTH = 16;
@@ -167,8 +168,8 @@ function resetDisplay() {
 function handleKeyBoardInput(event) {
     const key = event.key;
 
-    if (key === "Backspace") {
-
+    if (key === "Enter") {
+        funFactText.textContent = pickFunFact();
     }
 
     // make sure input is a number or operator before updating display
@@ -197,14 +198,10 @@ const funFacts = [
     "like a terrestrial forest, kelp forests experience seasonal changes. Storms and large weather events, like El Niño, can tear and dislodge the kelp, leaving a tattered winter forest to begin its growth again each spring."
 ];
 
-
-
-
-
-
-
 // Listeners
 
 window.addEventListener('keydown', handleKeyBoardInput);
 
 buttons.forEach(button => button.addEventListener('click', () => handleInput(button.id)));
+
+

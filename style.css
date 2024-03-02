@@ -1,8 +1,16 @@
 html {
     font-family: Arial, Helvetica, sans-serif;
+
 }
 
+body {
+    margin: 0;
 
+}
+
+.fun-facts {
+    flex: 1;
+}
 
 .container {
     display: flex;
@@ -10,6 +18,9 @@ html {
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
+    gap: 100px;
+    padding: 50px;
+
 
 }
 
