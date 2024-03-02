@@ -93,6 +93,7 @@ function handleInput(input) {
         return;
     }
 
+    // don't evaluate if expression only has one value
     if (operators.includes(input) && currentExpression.length > 1) {
 
         result = evaluateExpression();
