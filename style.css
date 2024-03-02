@@ -18,65 +18,60 @@ html {
     flex-direction: column;
     align-items: center;
 
-    max-width: 25vw;
-    max-height: 50vh;
+    max-height: 900px;
+    max-width: 300px;
+
+
     background-color: #fff;
 
     border: 2px solid #ccc;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
 
     border-radius: 10px;
     padding: 20px;
 }
 
 
-#display {
-    min-width: 220px;
-
-    padding: 10px;
-    margin-bottom: 20px;
-    text-align: right;
-    font-size: 24px;
-    border: 2px solid #ccc;
-
-    border-radius: 5px;
-    background-color: #f9f9f9;
-
-}
-
 .buttons {
     display: flex;
-
+    flex-direction: row;
     flex-wrap: wrap;
-
     justify-content: center;
+
+
     gap: 10px;
 }
 
-.buttons button {
-    padding: 15px;
-    font-size: 20px;
+.buttons button,
+.operator-buttons button {
+    flex-shrink: 1;
+    padding: 20px 25px;
+    font-size: 22px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #6ab04c;
     color: #fff;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.operator-buttons {
-
-    gap: 10px;
+.buttons button:hover,
+.operator-buttons button:hover {
+    background-color: #5a9940;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .operator-buttons button {
-    padding: 15px;
-    font-size: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: #fff;
+    background-color: #f7941d;
 }
 
-.buttons button:hover {
-    background-color: #45a049;
+#display {
+    min-width: 220px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    font-size: 28px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
 }

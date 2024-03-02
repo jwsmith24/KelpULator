@@ -103,6 +103,12 @@ function handleInput(input) {
         return;
     }
 
+    // check for backspace
+    if (input === "Backspace") {
+        applyBackspace();
+        return;
+    }
+
     // check for equals 
     if (input === "Enter") {
         operatorEntered = false;
@@ -145,8 +151,12 @@ function handleInput(input) {
 
 function applyBackspace() {
     // slice string to get whole string - last element;
+
+    console.log("existing expression: " + currentExpression);
     const backspacedExpression = currentExpression.slice(0, -1);
+    console.log("backspaced expression: " + backspacedExpression);
     currentExpression = backspacedExpression;
+    updateDisplay(currentExpression);
 }
 
 function clearCalculator() {
@@ -161,8 +171,12 @@ function resetDisplay() {
 function handleKeyBoardInput(event) {
     const key = event.key;
 
+    if (key === "Backspace") {
+
+    }
+
     // make sure input is a number or operator before updating display
-    if (!isNaN(parseInt(key)) || ['+', '-', '/', '*', 'Enter', 'Escape'].includes(key)) {
+    if (!isNaN(parseInt(key)) || ['+', '-', '/', '*', 'Enter', 'Escape', 'Backspace'].includes(key)) {
         handleInput(key);
     }
 }
