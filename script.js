@@ -78,6 +78,16 @@ function updateDisplay(value) {
     display.textContent = value;
 }
 
+// check if last input was an operator
+function isPrevInputOperator() {
+    return (operators.includes(currentExpression[currentExpression.length - 1]));
+}
+
+function overwriteOperator(newOperator) {
+    currentExpression.replace(/[+*/-]/, newOperator);
+
+}
+
 
 function handleInput(input) {
     // check for clear
@@ -96,9 +106,16 @@ function handleInput(input) {
     // don't evaluate if expression only has one value
     if (operators.includes(input) && currentExpression.length > 1) {
 
-        result = evaluateExpression();
-    }
+        if (!isPrevInputOperator) {
+            result = evaluateExpression();
+        } else {
+            // overwrite last operator
+            overwriteOperator(input);
+            return;
 
+        }
+
+    }
 
 
     // add user input to the current expression
