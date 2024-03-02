@@ -4,10 +4,9 @@ const buttons = document.querySelectorAll('.buttons>*')
 
 
 // Variables for Operations
-let a = [];
-let b = [];
-let operator = undefined;
-let operatorPressed = false;
+let userInput = [];
+let currentExpression = '';
+let result = 0;
 
 
 // Operations
@@ -69,12 +68,9 @@ function performOperation() {
 }
 
 
-function updateDisplay() {
+function updateDisplay(currentExpression) {
 
-    // concat array elements into a string with no seperation
-    const result = (!operatorPressed) ? a.join('') : b.join('');
-
-    display.textContent = result;
+    display.textContent = currentExpression;
 }
 
 
@@ -86,36 +82,21 @@ function handleInput(input) {
         return;
     }
 
-    // check for operator
-    if (['+', '-', '*', '/'].includes(input)) {
-
-        if (operatorPressed) {
-            return; // do nothing
-
-        } else {
-            operator = input;
-            return operatorPressed = true;
-        }
-    }
     // check for equals 
     if (input === "Enter") {
-
         display.textContent = performOperation();
         clearCalculator();
-
         return;
     }
 
-    if (!operatorPressed) {
-        a.push(input);
-        updateDisplay();
-        return;
 
-    } else if (operatorPressed) {
-        b.push(input);
-        updateDisplay();
-        return;
-    }
+    // add user input to the current expression
+
+    currentExpression += input;
+    updateDisplay(currentExpression);
+
+
+
 
 }
 
