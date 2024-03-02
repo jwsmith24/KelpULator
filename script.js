@@ -84,7 +84,7 @@ function isPrevInputOperator() {
 }
 
 function overwriteOperator(newOperator) {
-    currentExpression.replace(/[+*/-]/, newOperator);
+    currentExpression = currentExpression.replace(/[+*/-]/, newOperator);
 
 }
 
@@ -111,7 +111,9 @@ function handleInput(input) {
         } else {
             // overwrite last operator
             overwriteOperator(input);
+            updateDisplay(currentExpression);
             return;
+
 
         }
 
