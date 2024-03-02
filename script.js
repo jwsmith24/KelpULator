@@ -177,6 +177,15 @@ function handleKeyBoardInput(event) {
     }
 }
 
+function pickFunFact() {
+
+    const facts = funFacts.length - 1;
+    const randomNumber = Math.floor(Math.random() * facts);
+
+
+    return funFacts[randomNumber];
+}
+
 const funFacts = [
     "Kelp forests harbor a greater variety and higher diversity of plants and animals than almost any other ocean community. Many organisms use the thick blades as a safe shelter for their young from predators or even rough storms.",
     "Among the many mammals and birds that use kelp forests for protection or feeding are seals, sea lions, whales, sea otters, gulls, terns, snowy egrets, great blue herons, cormorants, and shore birds.",
@@ -187,6 +196,8 @@ const funFacts = [
     "Kelp can grow up to 18 inches per day!",
     "like a terrestrial forest, kelp forests experience seasonal changes. Storms and large weather events, like El Niño, can tear and dislodge the kelp, leaving a tattered winter forest to begin its growth again each spring."
 ];
+
+
 
 
 
