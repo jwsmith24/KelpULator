@@ -6,14 +6,15 @@ const buttons = document.querySelectorAll('.buttons>*')
 // Variables for Operations
 let a = [];
 let b = [];
-let operator;
+let operator = undefined;
 let operatorPressed = false;
 
 
 // Operations
-// All operations take 2 numbers as an argument
+// All operations take 2 arrays as an argument
 
 function add(a, b) {
+
     return a + b;
 }
 
@@ -37,19 +38,24 @@ function divide(a, b) {
 function performOperation() {
 
     let result;
-    //todo: make the arrays workable here
+
+    const first = parseInt(a.join(''));
+    const second = parseInt(b.join(''));
+
+
     switch (operator) {
+
         case '+':
-            result = add(a, b);
+            result = add(first, second);
             break;
         case '-':
-            result = subtract(a, b);
+            result = subtract(first, second);
             break;
         case '*':
-            result = multiply(a, b);
+            result = multiply(first, second);
             break;
         case '/':
-            result = divide(a, b);
+            result = divide(first, second);
             break;
         default:
             console.log("Operation not supported");
@@ -92,7 +98,7 @@ function handleInput(input) {
     // check for equals 
     if (input === "Enter") {
 
-        performOperation();
+        console.log(performOperation());
         return;
     }
 
@@ -113,6 +119,7 @@ function clearCalculator() {
     a = [];
     b = [];
     operatorPressed = false;
+    operator = undefined;
     display.textContent = "Let's Kelp-u-Late!";
 }
 
