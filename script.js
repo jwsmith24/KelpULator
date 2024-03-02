@@ -2,6 +2,7 @@
 const display = document.querySelector('#display');
 const buttons = document.querySelectorAll('.buttons>*')
 
+const operators = ['+', '-', '/', '*'];
 
 // Variables for Operations
 
@@ -88,11 +89,16 @@ function handleInput(input) {
 
     // check for equals 
     if (input === "Enter") {
-        evaluateExpression();
-        result = 0;
-
+        result = evaluateExpression();
         return;
     }
+
+    if (operators.includes(input) && currentExpression.length > 1) {
+
+        result = evaluateExpression();
+    }
+
+
 
     // add user input to the current expression
 
