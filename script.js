@@ -4,9 +4,12 @@ const buttons = document.querySelectorAll('.buttons>*')
 
 
 // Variables for Operations
-let a;
-let b;
+let a = [];
+let b = [];
 let operator;
+
+let operatorPressed = false;
+
 
 // Operations
 // All operations take 2 numbers as an argument
@@ -63,17 +66,28 @@ function updateDisplay(result) {
 
     display.textContent = result;
 }
+// general logic:
+//  accept a value for A until an operator button is pressed
+// (if equals button is pressed just return the A  value and reset)
+
+// after operator button is pressed, accept a value for b until equals button is pressed
+// (if a second operator button is pressed, reset)
+
 
 function handleInput(input) {
+    // we know input will be valid at this point
 
-    // general logic:
-    //  accept a value for A until an operator button is pressed
-    // (if equals button is pressed just return the A  value and reset)
+    // check for operator
+    if (['+', '-', '*', '/'].includes(input)) {
+        return operatorPressed = true;
+    }
 
-    // after operator button is pressed, accept a value for b until equals button is pressed
-    // (if a second operator button is pressed, reset)
+    if (!operatorPressed) {
+        return a.push(input);
 
-
+    } else if (operatorPressed) {
+        return b.push(input);
+    }
 
 }
 
@@ -85,7 +99,9 @@ function handleKeyBoardInput(event) {
 
     // make sure input is a number or operator before updating display
     if (!isNaN(parseInt(key)) || key === '+' || key === '-' || key === '*' || key === '/') {
-        updateDisplay(key);
+        handleInput(key);
+        console.log(a);
+        console.log(b);
     }
 
     if (key === 'Escape') {
