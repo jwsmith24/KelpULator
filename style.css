@@ -64,7 +64,8 @@ p {
 .buttons>* {
     background-color: gray;
     border: 1px solid black;
-
+    text-align: center;
+    align-items: center;
     flex: 1;
 }
 
@@ -88,6 +89,3 @@ p {
     min-width: 180px;
     justify-content: end;
 }
-
-
-.hoverEffect {}
