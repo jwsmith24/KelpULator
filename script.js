@@ -6,8 +6,6 @@ const buttons = document.querySelectorAll('.buttons>*')
 // Variables for Operations
 let a = [];
 let b = [];
-let operator;
-
 let operatorPressed = false;
 
 
@@ -62,34 +60,70 @@ function performOperation(operator, a, b) {
 
 }
 
-function updateDisplay(result) {
+
+function updateDisplay() {
+
+    let result;
+
+    (!operatorPressed) ? result = a : result = b;
+
+
 
     display.textContent = result;
 }
-// general logic:
-//  accept a value for A until an operator button is pressed
-// (if equals button is pressed just return the A  value and reset)
-
-// after operator button is pressed, accept a value for b until equals button is pressed
-// (if a second operator button is pressed, reset)
 
 
 function handleInput(input) {
-    // we know input will be valid at this point
+    // check for clear
+    if (input === "Escape") {
+        clearCalculator();
+        return;
+
+    }
 
     // check for operator
     if (['+', '-', '*', '/'].includes(input)) {
-        return operatorPressed = true;
+
+        if (operatorPressed) {
+            return; // do nothing
+
+        } else {
+            return operatorPressed = true;
+        }
+    }
+    // check for equals 
+    if (input === "Enter") {
+
+        evaluateInputs();
+        return;
     }
 
     if (!operatorPressed) {
-        return a.push(input);
+        a.push(input);
+        updateDisplay();
+        return;
 
     } else if (operatorPressed) {
-        return b.push(input);
+        b.push(input);
+        updateDisplay();
+        return;
     }
 
 }
+
+function clearCalculator() {
+    a = [];
+    b = [];
+    operatorPressed = false;
+    display.textContent = "Let's Kelp-u-Late!";
+}
+
+function evaluateInputs() {
+    display.textContent = "gonkulating";
+}
+
+
+
 
 window.addEventListener('keydown', handleKeyBoardInput);
 
@@ -98,23 +132,17 @@ function handleKeyBoardInput(event) {
     const key = event.key;
 
     // make sure input is a number or operator before updating display
-    if (!isNaN(parseInt(key)) || key === '+' || key === '-' || key === '*' || key === '/') {
+    if (!isNaN(parseInt(key)) || ['+', '-', '/', '*', 'Enter', 'Escape'].includes(key)) {
         handleInput(key);
-        console.log(a);
-        console.log(b);
-    }
 
-    if (key === 'Escape') {
-        clearDisplay();
+
     }
 
 }
 
-function clearDisplay() {
-    display.textContent = "0";
-}
 
-buttons.forEach(button => button.addEventListener('click', () => updateDisplay(button.id)));
+
+buttons.forEach(button => button.addEventListener('click', () => handleInput(button.id)));
 
 
 
