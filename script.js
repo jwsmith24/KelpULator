@@ -58,8 +58,9 @@ function performOperation() {
             result = divide(first, second);
             break;
         default:
+            // user hit enter before an operator was provided, return first value
             console.log("Operation not supported");
-            result = 0;
+            result = first;
     }
 
     return result;
@@ -81,6 +82,7 @@ function handleInput(input) {
     // check for clear
     if (input === "Escape") {
         clearCalculator();
+        resetDisplay();
         return;
     }
 
@@ -98,7 +100,9 @@ function handleInput(input) {
     // check for equals 
     if (input === "Enter") {
 
-        console.log(performOperation());
+        display.textContent = performOperation();
+        clearCalculator();
+
         return;
     }
 
@@ -120,10 +124,12 @@ function clearCalculator() {
     b = [];
     operatorPressed = false;
     operator = undefined;
-    display.textContent = "Let's Kelp-u-Late!";
+
 }
 
-
+function resetDisplay() {
+    display.textContent = "Let's Kelp-u-Late!";
+}
 
 
 
