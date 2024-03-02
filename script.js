@@ -132,7 +132,6 @@ function handleInput(input) {
 
     }
 
-
     // track that operator has been entered
     if (operators.includes(input)) {
         operatorEntered = true;
@@ -142,9 +141,12 @@ function handleInput(input) {
     currentExpression += input;
     updateDisplay(currentExpression);
 
+}
 
-
-
+function applyBackspace() {
+    // slice string to get whole string - last element;
+    const backspacedExpression = currentExpression.slice(0, -1);
+    currentExpression = backspacedExpression;
 }
 
 function clearCalculator() {
