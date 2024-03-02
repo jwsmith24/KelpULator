@@ -6,6 +6,7 @@ const buttons = document.querySelectorAll('.buttons>*')
 // Variables for Operations
 let a = [];
 let b = [];
+let operator;
 let operatorPressed = false;
 
 
@@ -78,7 +79,6 @@ function handleInput(input) {
     if (input === "Escape") {
         clearCalculator();
         return;
-
     }
 
     // check for operator
@@ -88,6 +88,7 @@ function handleInput(input) {
             return; // do nothing
 
         } else {
+            operator = input;
             return operatorPressed = true;
         }
     }
@@ -119,7 +120,9 @@ function clearCalculator() {
 }
 
 function evaluateInputs() {
-    display.textContent = "gonkulating";
+    display.textContent = "Kelp-u-lating ... ";
+
+
 }
 
 
