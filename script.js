@@ -6,16 +6,12 @@ const operators = ['+', '-', '/', '*'];
 const MAX_LENGTH = 16;
 
 // Variables for Operations
-
 let currentExpression = '';
 let result = 0;
-
 let operatorEntered = false;
 
 
 // Operations
-// All operations take 2 arrays as an argument
-
 function add(a, b) {
 
     return a + b;
@@ -180,6 +176,18 @@ function handleKeyBoardInput(event) {
         handleInput(key);
     }
 }
+
+const funFacts = [
+    "Kelp forests harbor a greater variety and higher diversity of plants and animals than almost any other ocean community. Many organisms use the thick blades as a safe shelter for their young from predators or even rough storms.",
+    "Among the many mammals and birds that use kelp forests for protection or feeding are seals, sea lions, whales, sea otters, gulls, terns, snowy egrets, great blue herons, cormorants, and shore birds.",
+    "These dense canopies of algae generally occur in cold, nutrient-rich waters. Because of their dependency upon light for photosynthesis, kelp forests form in shallow open waters and are rarely found deeper than 49-131 feet.",
+    "NOAA scientists study kelp forests by visiting the same locations over and over to assess the presence and abundance of a variety of organisms. Monitoring allows marine scientists to determine if the kelp forest is changing over time and to identify the cause of those changes, whether natural or human.",
+    "Kelp forests can be seen along much of the west coast of North America.",
+    "Kelp are large brown algae that live in cool, relatively shallow waters close to the shore. They grow in dense groupings much like a forest on land. These underwater towers of kelp provide food and shelter for thousands of fish, invertebrates, and marine mammal species.",
+    "Kelp can grow up to 18 inches per day!",
+    "like a terrestrial forest, kelp forests experience seasonal changes. Storms and large weather events, like El Niño, can tear and dislodge the kelp, leaving a tattered winter forest to begin its growth again each spring."
+];
+
 
 
 
