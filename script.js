@@ -3,6 +3,7 @@ const display = document.querySelector('#display');
 const buttons = document.querySelectorAll('.buttons>*')
 
 const operators = ['+', '-', '/', '*'];
+const MAX_LENGTH = 16;
 
 // Variables for Operations
 
@@ -88,6 +89,10 @@ function overwriteOperator(newOperator) {
 
 }
 
+function isOperator(input) {
+    return (operators.includes(input));
+}
+
 
 function handleInput(input) {
     // check for clear
@@ -102,6 +107,12 @@ function handleInput(input) {
     if (input === "Enter") {
         operatorEntered = false;
         result = evaluateExpression();
+        return;
+    }
+
+    // check for max input length
+    if (currentExpression.length > MAX_LENGTH && !isOperator(input)) {
+        display.textContent = "Max length exceeded";
         return;
     }
 
