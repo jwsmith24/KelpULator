@@ -10,6 +10,9 @@ body {
 
 .fun-facts {
     max-width: 40%;
+    flex-shrink: 0;
+
+
 }
 
 .container {
@@ -20,6 +23,7 @@ body {
     background-color: #f0f0f0;
     gap: 100px;
     padding: 50px;
+
 
 
 }
