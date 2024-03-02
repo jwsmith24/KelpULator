@@ -113,13 +113,6 @@ function resetDisplay() {
     display.textContent = "Let's Kelp-u-Late!";
 }
 
-
-
-// Listeners
-
-window.addEventListener('keydown', handleKeyBoardInput);
-
-
 function handleKeyBoardInput(event) {
     const key = event.key;
 
@@ -127,14 +120,13 @@ function handleKeyBoardInput(event) {
     if (!isNaN(parseInt(key)) || ['+', '-', '/', '*', 'Enter', 'Escape'].includes(key)) {
         handleInput(key);
     }
-
-    // otherwise do nothing
 }
 
 
 
+
+// Listeners
+
+window.addEventListener('keydown', handleKeyBoardInput);
+
 buttons.forEach(button => button.addEventListener('click', () => handleInput(button.id)));
-
-
-
-
