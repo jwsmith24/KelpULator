@@ -2,6 +2,7 @@
 const display = document.querySelector('#display');
 const buttons = document.querySelectorAll('.buttons>*');
 const funFactText = document.querySelector('#fact');
+const kelpButton = document.querySelector('#kelp');
 
 const operators = ['+', '-', '/', '*'];
 const MAX_LENGTH = 16;
@@ -187,6 +188,10 @@ function pickFunFact() {
     return funFacts[randomNumber];
 }
 
+function provideKelp() {
+    alert("If you'd like to avoid math, just keep hitting enter to get a fun fact!");
+}
+
 const funFacts = [
     "Kelp forests harbor a greater variety and higher diversity of plants and animals than almost any other ocean community. Many organisms use the thick blades as a safe shelter for their young from predators or even rough storms.",
     "Among the many mammals and birds that use kelp forests for protection or feeding are seals, sea lions, whales, sea otters, gulls, terns, snowy egrets, great blue herons, cormorants, and shore birds.",
@@ -204,4 +209,4 @@ window.addEventListener('keydown', handleKeyBoardInput);
 
 buttons.forEach(button => button.addEventListener('click', () => handleInput(button.id)));
 
-
+kelpButton.addEventListener('click', provideKelp);
