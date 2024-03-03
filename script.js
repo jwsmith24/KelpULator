@@ -109,6 +109,7 @@ function handleInput(input) {
 
     // check for equals 
     if (input === "Enter") {
+        funFactText.textContent = pickFunFact();
         operatorEntered = false;
         result = evaluateExpression();
         return;
@@ -168,10 +169,6 @@ function resetDisplay() {
 
 function handleKeyBoardInput(event) {
     const key = event.key;
-
-    if (key === "Enter") {
-        funFactText.textContent = pickFunFact();
-    }
 
     // make sure input is a number or operator before updating display
     if (!isNaN(parseInt(key)) || ['+', '-', '/', '*', 'Enter', 'Escape', 'Backspace'].includes(key)) {
