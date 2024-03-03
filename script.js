@@ -209,6 +209,16 @@ const funFacts = [
 
 window.addEventListener('keydown', handleKeyBoardInput);
 
-buttons.forEach(button => button.addEventListener('click', () => handleInput(button.id)));
+buttons.forEach(button => button.addEventListener('click', () => {
+    handleInput(button.id)
+})
+);
+
+const operatorButtons = document.querySelectorAll('.operator-buttons>*');
+operatorButtons.forEach(opButton => opButton.addEventListener('click', () => {
+    handleInput(opButton.id)
+})
+);
+
 
 kelpButton.addEventListener('click', provideKelp);
