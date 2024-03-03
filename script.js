@@ -207,7 +207,6 @@ const funFacts = [
 window.addEventListener('keydown', handleKeyBoardInput);
 
 buttons.forEach(button => button.addEventListener('click', () => {
-    console.log("Hi Ashleigh: " + button.id);
     handleInput(button.id)
 })
 );
