@@ -24,6 +24,7 @@ body {
     align-items: center;
     width: 80%;
 
+
 }
 
 #top-level {
@@ -35,13 +36,15 @@ body {
     max-width: 300px;
 
 
-    background-color: #fff;
+    background-color: #d1dbcc;
 
     border: 2px solid #ccc;
     box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 4px 8px #5a9940;
 
     border-radius: 10px;
     padding: 20px;
+
 }
 
 
@@ -101,30 +104,24 @@ body {
     width: 100vw;
     background-color: #f0f0f0;
 
-    gap: 10px;
-
-
 }
 
-
-.kelp-art {
+.sources-container {
     display: flex;
-    width: 60%;
-    height: 15%;
+    flex-direction: column;
 
-    justify-content: center;
 
-    padding: 0;
+    background-image: url("Kelp_Animation.gif");
+    background-size: cover;
+    margin-top: 15px;
 
 
 }
 
 
-audio {
-    align-self: flex-start;
-}
 
 .citations {
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -135,7 +132,8 @@ audio {
     box-shadow: 1px 4px 8px #5a9940;
     padding: 10px;
     background-color: #d1dbcc;
-    margin-top: 1%;
+    margin-top: 6%;
+
 
 }
 
@@ -147,4 +145,8 @@ audio {
     gap: 10px;
     padding-left: 20px;
 
+}
+
+audio {
+    align-self: flex-start;
 }
