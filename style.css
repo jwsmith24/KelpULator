@@ -24,11 +24,6 @@ body {
     align-items: center;
     width: 80%;
 
-
-
-
-
-
 }
 
 #top-level {
@@ -83,6 +78,9 @@ body {
     background-color: #f7941d;
 }
 
+
+
+
 #display {
     min-width: 220px;
     padding: 20px;
@@ -102,11 +100,25 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: #f0f0f0;
-    gap: 50px;
-    padding: 50px;
+
+    gap: 10px;
 
 
 }
+
+
+.kelp-art {
+    display: flex;
+    width: 60%;
+    height: 15%;
+
+    justify-content: center;
+
+    padding: 0;
+
+
+}
+
 
 audio {
     align-self: flex-start;
@@ -123,7 +135,7 @@ audio {
     box-shadow: 1px 4px 8px #5a9940;
     padding: 10px;
     background-color: #d1dbcc;
-    margin-top: 7%;
+    margin-top: 1%;
 
 }
 
