@@ -200,7 +200,9 @@ const funFacts = [
     "Kelp forests can be seen along much of the west coast of North America.",
     "Kelp are large brown algae that live in cool, relatively shallow waters close to the shore. They grow in dense groupings much like a forest on land. These underwater towers of kelp provide food and shelter for thousands of fish, invertebrates, and marine mammal species.",
     "Kelp can grow up to 18 inches per day!",
-    "like a terrestrial forest, kelp forests experience seasonal changes. Storms and large weather events, like El Niño, can tear and dislodge the kelp, leaving a tattered winter forest to begin its growth again each spring."
+    "like a terrestrial forest, kelp forests experience seasonal changes. Storms and large weather events, like El Niño, can tear and dislodge the kelp, leaving a tattered winter forest to begin its growth again each spring.",
+    "Kelp ash was used to make gunpowder in the 16th and 17th centuries. When Germany placed an embargo on the potassium compounds derived from the kelp ash, called potash, the Americans industrialized kelp harvesting in southern California leading to kelp forest research that cotinues today.",
+    "The term “kelp” originated in Europe and was used to describe the ash of burnt seaweeds."
 ];
 
 // Listeners

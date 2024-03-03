@@ -9,7 +9,8 @@ body {
 }
 
 .fun-facts {
-    max-width: 40%;
+
+    width: 40%;
     flex-shrink: 0;
 
 
@@ -20,6 +21,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
     background-color: #f0f0f0;
     gap: 100px;
     padding: 50px;
