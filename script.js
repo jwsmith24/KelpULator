@@ -3,6 +3,7 @@ const display = document.querySelector('#display');
 const buttons = document.querySelectorAll('.buttons>*');
 const funFactText = document.querySelector('#fact');
 const kelpButton = document.querySelector('#kelp');
+const operatorButtons = document.querySelectorAll('.operator-buttons>*');
 
 const operators = ['+', '-', '/', '*'];
 const MAX_LENGTH = 16;
@@ -15,7 +16,6 @@ let operatorEntered = false;
 
 // Operations
 function add(a, b) {
-
     return a + b;
 }
 
@@ -28,7 +28,6 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-
     if (b !== 0) return a / b;
 
     console.log("I can't believe you tried to divide by zero...");
@@ -206,16 +205,14 @@ const funFacts = [
 
 window.addEventListener('keydown', handleKeyBoardInput);
 
+kelpButton.addEventListener('click', provideKelp);
+
 buttons.forEach(button => button.addEventListener('click', () => {
     handleInput(button.id)
 })
 );
 
-const operatorButtons = document.querySelectorAll('.operator-buttons>*');
 operatorButtons.forEach(opButton => opButton.addEventListener('click', () => {
     handleInput(opButton.id)
 })
 );
-
-
-kelpButton.addEventListener('click', provideKelp);
